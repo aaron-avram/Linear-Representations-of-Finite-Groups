@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Serre Chapter 1}
+\author{Aaron Avram}
+\date{September 18 2025}
+
+\begin{document}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\maketitle
+
+\begin{align*}
+    \textbf{Generalities on linear representations}
+\end{align*}
+
+\section{Definitions}
+
+Let $V$ be a vector space over the field $\mathbb C$ and let $GL(V)$ be the group
+of isomorphisms of $V$ onto itself. By definition every element of $GL(V)$ is an invertible
+linear transformation whose inverse is also a linear transformation. When $V$
+has a finite basis $(e_i)$ of n elements, each linear map $a: V \to V$
+can be defined by a square matrix $(a_{ij})$ of order $n$. Its coefficients are the
+unique complex numbers such that:
+\[ a(e_j) = \sum_{i} a_{ij}e_i \] 
+
+\begin{definition}
+    Suppose $G$ is a finite group with identity element $1$, and composition $(s, t) \mapsto st$.
+    A linear representation of $G$ in V is a homomorphism $\rho$ from $G$ to $GL(V)$. So we associate
+    each element $s \in G$ with some $\rho(s) \in GL(V)$ (often instead $\rho_s$) such that the following holds:
+    \[ \rho(st) = \rho(s) \cdot \rho(t) \text{ for } s, t \in G \]
+    When $\rho$ is given we say that V is a representation space of G, or simply a representation of G.
+\end{definition}
+Moving forward we restrict our attention to $V$ of finite dimension. And in this case
+we say that $n := \dim V$ is the degree of the representation. Let $(e_i)$ be a basis of V
+and let $R_s$ be the matrix of $\rho_s$ with respect to this basis. We have:
+\[ \det R_s \neq 0, \qquad R_{st} = R_s \cdot R_t, \qquad \text{if $s, t \in G$}\]
+If we let $r_{ij}(s)$ be the coefficients of the matrix $R_s$ then the homomorphism condition becomes:
+\[ r_{ik}(s) = \sum_{j} r_{ij}(s) \cdot r_{jk}(s) \]
+So the homomorphism $\rho$ may be identified using linear maps or their matrix representations
+in a given basis that satisfy this condition.
+
+\begin{definition}
+    Let $\rho, \rho'$ be representations of the same group $G$ in vector spaces
+    $V$, $V'$. These representations are said to be similar (or isomorphic) if there exists
+    a linear isomorphism $\tau: V \to V'$ such that:
+    \[ \tau \circ \rho(s) = \rho'(s) \circ \tau \qquad \text{for all $s \in G$} \]
+    In matrix form this corresponds to an invertible matrix  $T$ such that:
+    \[ T \cdot R_s = R'_s \cdot T \qquad \text{for all $s \in G$} \]
+    which is also written $R_s' = T \cdot R_s \cdot T^{-1}$.
+\end{definition}
+In some sense this is a way of identifying two representations as we may relabel
+each element of $x \in V$ by $\tau(x) \in V'$ and preserve relationships between the different
+maps/matrices. Note that in particular this implies that $\rho$ and $\rho'$ have the same degree.
+
+\section{Basic Examples}
+\begin{enumerate}
+    \item[(a)] A representation of degree 1 of a group $G$ is a homomorphism $\rho: G \to C^{*}$
+    where $C^{*}$ is the multiplicative group of the nonzero complex numbers. Since each element in $G$
+    has finite order, the values $\rho(s)$ of $\rho$ are roots of unity. In particular, if we take $\rho(s) = 1$
+    for all $s \in G$ then we call this the unit (or trivial) representation.
+    \item[(b)] Let $g$ be the order of $G$, and let $V$ be a vector space of dimension $g$,
+    with a basis $(e_t)_{t \in G}$ indexed by $t \in G$. For $s \in G$, let $\rho_s$ be the
+    linear map of $V \to V$ that sends $e_s$ to $e_{st}$. This defines a linear representation
+    called the regular representation of $G$. Its degree is the order of $G$. Note that $e_s = \rho_s(e_1)$
+    so the images of $e_1$ form a basis of $V$. If we have a representation W of G containing
+    a vector w such that $\rho_s(w)$, $s \in G$ forms a basis of W then W is isomorphic to the
+    regular representation with isomorphism $e_s \mapsto \rho_s(w)$.
+    \item[(c)] Now if $G$ acts on a finite set $X$ tat for each $s \in G$ there is a permutation
+    of $x \mapsto sx$ of X satistfying:
+    \[1x = x, \quad s(tx) = (st)x \quad \text{if } s, t \in G, \, x \in X \]
+    Now let $V$ be a vector space with a basis $(e_x)_{x \in X}$. For $s \in G$
+    let $\rho_s$ be the linear map of $V$ into $V$. which sends $e_x \to e_{sx}$.
+    This linear representation of $G$ is called the permutation representation associated
+    with $X$.
+
+\section{Subrepresentations}
+\end{enumerate}
+\end{document}
