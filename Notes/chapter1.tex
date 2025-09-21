@@ -72,7 +72,7 @@ maps/matrices. Note that in particular this implies that $\rho$ and $\rho'$ have
     so the images of $e_1$ form a basis of $V$. If we have a representation W of G containing
     a vector w such that $\rho_s(w)$, $s \in G$ forms a basis of W then W is isomorphic to the
     regular representation with isomorphism $e_s \mapsto \rho_s(w)$.
-    \item[(c)] Now if $G$ acts on a finite set $X$ tat for each $s \in G$ there is a permutation
+    \item[(c)] Now if $G$ acts on a finite set $X$ then for each $s \in G$ there is a permutation
     of $x \mapsto sx$ of X satistfying:
     \[1x = x, \quad s(tx) = (st)x \quad \text{if } s, t \in G, \, x \in X \]
     Now let $V$ be a vector space with a basis $(e_x)_{x \in X}$. For $s \in G$
@@ -81,5 +81,22 @@ maps/matrices. Note that in particular this implies that $\rho$ and $\rho'$ have
     with $X$.
 
 \section{Subrepresentations}
+Given a linear representation $\rho: G \to GL(V)$, and a subspace $W$ of $V$ such
+that $W$ is $G$-invariant (or stable under $G$). I.e. $x \in W$ implies $\rho_sx \in W$, for all $s \in G$.
+The restriction $\rho_s^W$ of $\rho_s$ to $W$ is then still an automorphism of $W$ with
+$\rho_{st}^W = \rho_s^W\cdot\rho_t^W$. Thus $\rho^W: G \to GL(V)$ is a linear representation of G in W 
+known as a subrepresentation of $V$.
+
+Now we proceed with a worked example. Take for V the regular representation of $G$ and let
+W be the 1 dimensional subspace spanned by $x = \sum_{s \in G}e_s$. Since $\rho_s: e_t \to e_st$
+and $sG = G$ since every element in G can just be written as $s(s^{-1}g)$. Thus, $\rho_s(x) = x$
+for all $s \in G$. This means $W$ is a subrepresentation of $V$ isomorphic to the unit representation.
+
+\begin{theorem}
+    Let $\rho: G \to GL(V)$ be a linear representation of $G$ in $V$ and let $W$
+    be a vector subspace of $V$ stable under $G$. Then there exists a complement $W^{0}$
+    of $W$ in $V$ which is stable under $G$.
+\end{theorem}
+
 \end{enumerate}
 \end{document}
